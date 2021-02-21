@@ -1,6 +1,6 @@
 # Risk v 0.1
 Basic functionality. :
-                          
+
                           Game initialization (not entirely finished, it will be updated soon, planning to add that in v 0.3)
                           
                           Beggining Phase - player place 3 reinforcing squads in target sector he or she controls (gonna rework it, so player can place squads in 
@@ -15,10 +15,15 @@ Basic functionality. :
 
 # (Work in progress) Risk v 0.2 - in cooperation with IngvarusK
 Added Multiplayer version (separate from singleplayer version):
+
                           Main program (backend)
+                          
                           Server TCP (mediates in communication between main program and clients)
+                          
                           Server UDP multicast (allows clients to find available games)
+                          
                           Client UDP (finding games) mixed with TCP (actual game)
+                          
 
 Compunication between servers and main program is carried out using pipes
 Minor changes in main program, like randomized starting player
