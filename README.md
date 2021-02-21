@@ -22,4 +22,4 @@ Minor changes in main program, like randomized starting player
 * *Implementation of A-star algorithm to check, if moving from sector A to B is possible*
 
 # (long-temp plans) Risk v 1.0
-* *Added GUI
+* *Added GUI*
