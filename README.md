@@ -1,5 +1,9 @@
 # Risk v 0.1
 Basic functionality. :
+*Game initialization (not entirely finished, it will be updated soon, planning to add that in v 0.3)
+*Beggining Phase - player place 3 reinforcing squads in target sector he or she controls (gonna rework it, so player can place squads in different positions, that was made just to make input simpler, will be changed in v 0.3)
+*Combat Phase - player can attack other players and claim sectors (not entirely finished, need to add additional dices, so chances of winning for both defender and attacker aren't the same)
+*Rearangement Phase - player can move his units from one sector to another. Now very basic functionality, but soon I will add A* algorithm to find sectors, where player actually can place his units (planning to add that in v 0.3)
 
 # (Work in progress) Risk v 0.2 - in cooperation with IngvarusK
 Added Multiplayer version (separate from singleplayer version):
