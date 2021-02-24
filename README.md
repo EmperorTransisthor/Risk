@@ -5,7 +5,7 @@ Basic functionality:
 *    Combat Phase - player can attack other players and claim sectors (not entirely finished, need to add additional dices, so chances of winning for both defender and attacker aren't the same)
 *    Rearangement Phase - player can move his units from one sector to another. Now very basic functionality, but soon I will add A* algorithm to find sectors, where player actually can place his units (planning to add that in v 0.3)
 
-# (Work in progress) Risk v 0.2 - in cooperation with IngvarusK
+# Risk v 0.2 - in cooperation with IngvarusK
 Added Multiplayer version (separate from singleplayer version):
 * Main program (backend)
 * Server TCP (mediates in communication between main program and clients)
