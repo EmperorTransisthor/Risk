@@ -1,4 +1,3 @@
-# This is Risk v0.2 client readme
+# Risk v0.2 client
 
-It was designed specifically for linux OS. 
-Download all files and type **$ make** to compile
+The client is an echo program, which replies to server via TCP protocol. Before that, client is searching for available games via UDP multicast.
