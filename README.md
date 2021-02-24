@@ -12,7 +12,7 @@ Added Multiplayer version (separate from singleplayer version):
 * Server UDP multicast (allows clients to find available games)
 * Client UDP (finding games) mixed with TCP (actual game)
 
-Compunication between servers and main program is carried out using pipes.
+Communication between servers and main program is carried out using pipes.
 Minor changes in main program, like randomized starting player
 
 # (in plans) Risk v 0.3
