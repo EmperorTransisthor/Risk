@@ -70,7 +70,7 @@ Region::Region() : World()
     regionData["Oceania"] = "NULL";
     regionData["SouthAmerica"] = "NULL";
 
-    allRegions = { "Asia" , "Africa" , "Europe" , "NorthAmerica" , "Oceania" , "SouthAmerica" };        // to nie jest potrzebne do testowania, mo¿na to przecie¿ zrobiæ rêcznie
+    allRegions = { "Asia" , "Africa" , "Europe" , "NorthAmerica" , "Oceania" , "SouthAmerica" };        // to nie jest potrzebne do testowania, moÂ¿na to przecieÂ¿ zrobiÃ¦ rÃªcznie
 
     // Default values for second map
     std::vector <std::string> sectors_Asia;
@@ -201,9 +201,9 @@ Region::Region(std::string allRegions,                                          
     std::vector <std::string> oceaniaSectors, std::vector <std::string> southAmericaSectors)// :
     //World(std::map <std::string, int> worldMapInput)
 {
-    // Przypisanie regionowi sektorów wraz z NULLami do nich wszystkich
+    // Przypisanie regionowi sektorÃ³w wraz z NULLami do nich wszystkich
 
-    //regionData = mapaRegionów; // b³¹d celowy, szybko mogê skoczyæ, aby uzupe³niæ
+    //regionData = mapaRegionÃ³w; // bÂ³Â¹d celowy, szybko mogÃª skoczyÃ¦, aby uzupeÂ³niÃ¦
 }
 
 void Region::setRegion(std::pair <std::string, std::string> region_map_change)
@@ -263,7 +263,7 @@ Sector::Sector()
     struct World::Player player5;
     struct World::Player player6;
 
-    // czy stuktury player1, 2, 3, 4, 5, 6 s¹ usuwane podczas wrzucenia ich do wektora?
+    // czy stuktury player1, 2, 3, 4, 5, 6 sÂ¹ usuwane podczas wrzucenia ich do wektora?
     World::vectorOfPlayers.push_back(player1);                  // Player ID = 0
     World::vectorOfPlayers.push_back(player2);                  // Player ID = 1
     World::vectorOfPlayers.push_back(player3);                  // Player ID = 2
@@ -608,7 +608,7 @@ Sector::Sector()
     // Sector ID = 41
     sectorNeighbourhood_temp = { "Peru", "Brasil" };
     neighbourSectors[allSectors[41]] = sectorNeighbourhood_temp;
-    // Zrobienie tego, co ma zrobiæ Sector
+    // Zrobienie tego, co ma zrobiÃ¦ Sector
     std::cout << "World generation complete" << std::endl;
 }
 
@@ -663,7 +663,7 @@ std::pair<std::string, int> Sector::sectorMap_bothArgGetter(std::string sectorNa
     std::pair <std::string, int> bothArguments;
     bothArguments.first = sectorMap_playerName_Getter(sectorName);
     bothArguments.second = sectorMap_numberOfSquadsInSector_Getter(sectorName);
-    // który return jest czytelniejszy?
+    // ktÃ³ry return jest czytelniejszy?
     //return std::pair<std::string, int>(bothArguments);
     return bothArguments;
 }
@@ -693,7 +693,7 @@ bool Sector::allSectorsAcquired_checker()
     std::cout << "Exception detected in allSectorsAcquired_checker()!" << std::endl;
     std::cout << "Iter = " << iter << std::endl;
     exit(12);
-    //return false; // linijka dodana na potrzeby wyeliminowania ostrze¿enia wygenerowanego przez g³upie IDE
+    //return false; // linijka dodana na potrzeby wyeliminowania ostrzeÂ¿enia wygenerowanego przez gÂ³upie IDE
 }
 
 bool Sector::canAttackSector_checker(std::string attackingSector, std::string defendingSector)
@@ -848,7 +848,7 @@ int Sector::playerErasure()
     int numberOfErasedPlayers = 0;
     int numberOfPlayers = World::numberOfPlayers_Getter();
     for (int i = 0; i < numberOfPlayers; i++)
-    {                               // Nie mo¿na nazwaæ mapy nazw¹ funkcji -> inaczej jest kolizja nazw, przes³anianie nie dzia³a w ten sposób
+    {                               // Nie moÂ¿na nazwaÃ¦ mapy nazwÂ¹ funkcji -> inaczej jest kolizja nazw, przesÂ³anianie nie dziaÂ³a w ten sposÃ³b
         std::map <int, std::string> mapOfSectorsPlayerPossess_temp = mapOfSectorsPlayerPossess(vectorOfPlayers[i].nick);
         if (mapOfSectorsPlayerPossess_temp.empty())
         {
@@ -863,13 +863,13 @@ int Sector::playerErasure()
 void Sector::regionChecker()
 {
     // If player is in possession of all sectors particular region consists of, rework region possession
-    std::map <std::string, std::vector <std::string> > regionSectors_temp = regionSectors_Getter(); // -> zwraca mapê sektorów, z których sk³ada siê region
+    std::map <std::string, std::vector <std::string> > regionSectors_temp = regionSectors_Getter(); // -> zwraca mapÃª sektorÃ³w, z ktÃ³rych skÂ³ada siÃª region
 
     for (uint8_t i = 0; i < allRegions.size(); i++)
     {
         std::map <std::string, std::string> mapOfRegion_temp;
         std::vector <std::string> vectorOfSectorsInRegion = regionSectors_temp[allRegions[i]];
-        // dodaæ funkcjê informuj¹c¹ o utracie przez gracza kontroli nad regionem
+        // dodaÃ¦ funkcjÃª informujÂ¹cÂ¹ o utracie przez gracza kontroli nad regionem
         regionData[allRegions[i]] = "NULL";
 
         // Filling map of Region
@@ -937,7 +937,7 @@ int mainMenu()
             std::cout << "Project has been developed by Michal Bogon, EiT student in purpose of programming project realisation. Semester 2020/2021" << std::endl << std::endl;
 
             std::cout << "Enter any character to continue" << std::endl;
-                  // wtf, dlaczego ten cin >> nie dzia³a??
+                  // wtf, dlaczego ten cin >> nie dziaÂ³a??
             std::string irrelevant; std::cin >> irrelevant;
             /*
             system("cls");
