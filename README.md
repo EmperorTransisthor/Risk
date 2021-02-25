@@ -21,6 +21,7 @@ Minor changes in main program, like randomized starting player
 * *Expansion of Combat Phase, so chances of attack aren't the same for all numbers of attacking/defending squads + possibility to disengage*
 * *Implementation of A-star algorithm to check, if moving from sector A to B is possible*
 * *Improved RNG*
+* *Singleplayer fused with multiplayer, no need for separate processes*
 
 # (long-temp plans) Risk v 1.0
 * *Added GUI*
