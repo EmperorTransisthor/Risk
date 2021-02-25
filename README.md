@@ -23,3 +23,4 @@ Minor changes in main program, like randomized starting player
 
 # (long-temp plans) Risk v 1.0
 * *Added GUI*
+* Tidy up the code
