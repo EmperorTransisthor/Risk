@@ -16,7 +16,7 @@ Communication between servers and main program is carried out using pipes.
 Minor changes in main program, like randomized starting player
 
 # (in plans) Risk v 0.3
-* *Finished initialization, allowing to set more units on the map for players, and customized game start*
+* *Finished initialization, allowing to set more units on the map for players, and customized game start (game master chooses number of bonus units at the beggining*
 * *Allowing players to put all squads at once or separately, but need to rethink, how to do it well*
 * *Expansion of Combat Phase, so chances of attack aren't the same for all numbers of attacking/defending squads + possibility to disengage*
 * *Implementation of A-star algorithm to check, if moving from sector A to B is possible*
