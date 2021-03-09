@@ -17,7 +17,7 @@ The actual turn system. Structure: <br />
 
 Every time, player X finishes his turn, program checks, if any player was beaten by player X. If so, program announces this information and removes player from the game.
 
-# Risk server
+# Risk server - in cooperation with IngvarusK
 Version 0.2 added server and client to Risk. It consists of:
 * Main program (backend)
 * Server TCP (mediates in communication between main program and clients)
