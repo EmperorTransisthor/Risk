@@ -19,9 +19,9 @@ Every time, player X finishes his turn, program checks, if any player was beaten
 
 # Risk server
 Version 0.2 added server and client to Risk. It consists of:
-    * Main program (backend)
-    * Server TCP (mediates in communication between main program and clients)
-    * Server UDP multicast (allows clients to find available games)
-    * Client UDP (finding games) mixed with TCP (actual game)
+* Main program (backend)
+* Server TCP (mediates in communication between main program and clients)
+* Server UDP multicast (allows clients to find available games)
+* Client UDP (finding games) mixed with TCP (actual game)
 
 Communication between servers and main program is carried out using pipes. Minor changes in main program, like randomized starting player
