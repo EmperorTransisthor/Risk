@@ -22,6 +22,7 @@ Minor changes in main program, like randomized starting player
 * *Implementation of A-star algorithm to check, if moving from sector A to B is possible*
 * *Improved RNG*
 * *Integration of singleplayer and multiplayer versions*
+* *Make Risk cross platform, available for Linux and Windows*
 
 # (long-temp plans) Risk v 1.0
 * *Added GUI*
