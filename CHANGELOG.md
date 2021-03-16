@@ -26,7 +26,7 @@ Minor changes in main program, like randomized starting player
 
 # (long-temp plans) Risk v 1.0
 * *Added GUI*
-* Tidy up the code:
-* * Make menu class
-* * Pack operations in main to functions
-* * Minor improvements and optimalisation
+* Tidy up the code, including:
+* * Making menu class
+* * Packing operations in main to functions
+* * Other minor improvements and optimalisation
