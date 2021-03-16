@@ -29,3 +29,4 @@ Minor changes in main program, like randomized starting player
 * Tidy up the code:
 * * Make menu class
 * * Pack operations in main to functions
+* * Minor improvements and optimalisation
