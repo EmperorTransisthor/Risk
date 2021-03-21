@@ -19,17 +19,17 @@
 
 int main(int argc, char** argv)
 {
-    // bool gameIsRunning = true;
+    	// bool gameIsRunning = true;
 
-    // Classic World initialization // 
-    // int menuOption = mainMenu();
-
-    setlogmask(LOG_UPTO(LOG_INFO));
+    	// Classic World initialization // 
+    	
+	// Daemon init
+    	setlogmask(LOG_UPTO(LOG_INFO));
 	daemon_init(argv[0], LOG_LOCAL1, LOG_DAEMON);
-    syslog(LOG_NOTICE, ">------------------- SERVER START -------------------< \n");
-    char buffer[MAXLINE];
+    	syslog(LOG_NOTICE, ">------------------- SERVER START -------------------< \n");
+    	char buffer[MAXLINE];
 
-    int argv0size = 20;
+    	int argv0size = 20;
 	strncpy(argv[0],"Risk-game",argv0size);
 	
 	int multicast_pipe[2];
@@ -38,11 +38,14 @@ int main(int argc, char** argv)
 	int info = 1;
 	
 	int multicast_pid = fork();
-	if (multicast_pid == 0){
+	if (multicast_pid == 0)
+	{
 		strncpy(argv[0],"Risk-UDP-multicast",argv0size);
 		ServMULTICAST(&multicast_pipe[0]);
 	}
-	else{   // Whole program
+	
+	else
+	{   // Whole program
     
     int c2pPipe[2];                         // Child to Parent Pipe
     int p2cPipe[2];                         // Parent to Child Pipe
@@ -109,25 +112,6 @@ int main(int argc, char** argv)
         Sector exemplaryWorld(numberOfPlayers_ServRecv, arrayOfNicks);
         
         
-        /*
-        if (menuOption == 1 || menuOption == 2)
-        {
-            //Sector exemplaryWorld;
-            system("clear");
-            std::cout << "This is new world" << std::endl;
-        }
-        else if (menuOption == 2)
-            std::cout << "Not developed yet" << std::endl;
-
-            
-        else if (menuOption == 4)
-            exit(0);
-        else 
-        {
-            std::cerr << "Something went wrong with main menu, please let me know, that this error has occurred, so I can fix it. Mail: michalbogon@o2.pl" << std::endl;
-            exit(1);
-        }
-        */
 
         ////////////////////////////////////////////////// GAME INIT //////////////////////////////////////////////////
         #ifndef gameInit
@@ -146,8 +130,6 @@ int main(int argc, char** argv)
             playerID %= exemplaryWorld.World::numberOfPlayers_Getter();              // playerID %= numberOfPlayers;
             bool regionSettlement_success = false;
 
-            /* if (write(p2cPipe[1], &operationCliChng, sizeof(int))    == -1) { printf("Write pipe error"); }
-            if (write(p2cPipe[1], &playerID, sizeof(int))            == -1) { printf("Write pipe error"); } */
             pipeComParent (&pipeComStructure, operationCliChng);
 
 
@@ -212,14 +194,6 @@ int main(int argc, char** argv)
                     stringStreamTemp << "\nChoose a sector ID to put your squad - ";    
                     pipeComParent(&pipeComStructure, operationREAD);
                     sectorID = atoiChecker(pipeComStructure.buffer);
-                    /* sectorID = atoi(pipeComStructure.buffer);
-
-                    if (sectorID == 0)      // If atoi read buffer incorrectly, compensate
-                    {
-                        stringTemp = pipeComStructure.buffer;
-                        if (stringTemp.find("0") == std::string::npos)
-                            sectorID = -1;
-                    } */
 
 
                     if (sectorID >= 0 && sectorID < 42)
@@ -511,15 +485,6 @@ int main(int argc, char** argv)
                                 }
                             }
                         }
-                         /*    else
-                            {
-                                stringStreamTemp << "Please enter a number between 0 - 41 and you have to own it" << std::endl;
-                            } */
-                        // }
-                        /* else
-                        {
-                            stringStreamTemp << "Please enter a number between 0 - 41 and you have to own it" << std::endl;
-                        } */
                     }
                 }
 
@@ -536,8 +501,6 @@ int main(int argc, char** argv)
                     pipeComParent(&pipeComStructure, operationEXIT);
                     close(p2cPipe[1]);
                     close(c2pPipe[0]);
-                    // how to close all children?
-                    //kill(pid, SIGKILL);     // old
                     exit(0);
                 }
 
