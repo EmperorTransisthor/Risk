@@ -2,7 +2,7 @@
  * @file main.c
  * @author Michal Bogon
  * @coauthor Igor Kaminski
- * @date 03'rd Dec 2020
+ * @date 13'th Feb 2020
  * @brief File containing the main function.
  * @ver 0.2
  */
