@@ -118,7 +118,7 @@ int main(int argc, char** argv)
 
         bool gameInit_bool = true, wrongNumber_bool = false;
         srand(time(NULL));
-        int playerID = rand() % exemplaryWorld.World::numberOfPlayers_Getter();   // to ma być losowane przez 
+        int playerID = rand() % exemplaryWorld.World::numberOfPlayers_Getter();
         pipeComStructure.playerID_Address = &playerID;
         const int startingPlayer = playerID;
         if(write(p2cPipe[1] , &playerID, sizeof(int)) == -1) printf("Write pipe error");
@@ -346,7 +346,7 @@ int main(int argc, char** argv)
             bool combatPhaseMenu = true;
             while (combatPhaseMenu)
             {
-                int combatPhase_option;     // gdy się wpisuje znak, a nie liczbę, to program się crashuje
+                int combatPhase_option;
                 mapOfSectorsPlayerPossess = exemplaryWorld.mapOfSectorsPlayerPossess(exemplaryWorld.World::vectorOfPlayers[playerID].nick);     // refreshing
 
                 stringStreamTemp << "Combat Phase" << std::endl
