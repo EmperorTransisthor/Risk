@@ -1,3 +1,4 @@
+#pragma once
 #include        <sys/types.h>   /* basic system data types */
 #include        <sys/socket.h>  /* basic socket definitions */
 #include        <netinet/in.h>  /* sockaddr_in{} and other Internet defns */
@@ -15,14 +16,7 @@
 #include		<linux/un.h>
 #include		<time.h>
 
-#define MAXLINE 1024
 #define SA      struct sockaddr
-#define IPV6 1
-
-#define addr_size 50
-#define port_size 10
-#define if_size 10
-
 
 unsigned int
 _if_nametoindex(const char *ifname)

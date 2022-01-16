@@ -11,6 +11,7 @@
 #include "Ryzyko_prototypes.hpp"
 #include "SerwerTCP.hpp"
 #include "SerwerMULTICAST.h"
+#include "PipeCom/PipeHelper.h"
 #include <sys/syslog.h>
 
 

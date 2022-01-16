@@ -1,22 +1,22 @@
 #include "Ryzyko_classes.hpp"
 #include "Ryzyko_prototypes.hpp"
+#include "PipeCom/PipeHelper.h"
 
+#include <limits>
 
 World::World()
 {
-    //numberOfPlayers_Setter();
-    listOfBonusSquadsForRegionPossession["Asia"] = 7;                       // 7 additional squads for ASIA (ID = 0) possession      
-    listOfBonusSquadsForRegionPossession["Africa"] = 3;                     // 3 additional squads for AFRICA (ID = 1) possession
-    listOfBonusSquadsForRegionPossession["Europe"] = 5;                     // 5 additional squads for EUROPE (ID = 2) possession
-    listOfBonusSquadsForRegionPossession["NorthAmerica"] = 5;               // 5 additional squads for NORTHAMERICA (ID = 3) possession
-    listOfBonusSquadsForRegionPossession["Oceania"] = 2;                    // 2 additional squads for OCEANIA (ID = 4) possession
-    listOfBonusSquadsForRegionPossession["SouthAmerica"] = 3;               // 3 additional squads for SOUTHAMERICA (ID = 5) possession
+    listOfBonusSquadsForRegionPossession["Asia"] = 7;
+    listOfBonusSquadsForRegionPossession["Africa"] = 3;
+    listOfBonusSquadsForRegionPossession["Europe"] = 5;
+    listOfBonusSquadsForRegionPossession["NorthAmerica"] = 5;
+    listOfBonusSquadsForRegionPossession["Oceania"] = 2;
+    listOfBonusSquadsForRegionPossession["SouthAmerica"] = 3;
 }
 
 World::World(std::map <std::string, int> WorldMapInput)
 {
-    //numberOfPlayers_Setter();
-    listOfBonusSquadsForRegionPossession = WorldMapInput;                       // 
+    listOfBonusSquadsForRegionPossession = WorldMapInput;
 }
 
 void World::numberOfPlayers_Setter()
@@ -661,12 +661,9 @@ Sector::Sector(int numberOfPlayers_FromServ, char* arrayOfNicks[MAXPLAYERS])
 
 Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
 {
-
-    //int numberOfPlayers = numberOfPlayers_Getter();
     int numberOfPlayers = vectorOfPlayers_Serv.size();
     std::cout << "Number of Players (Game): " << numberOfPlayers << std::endl;
     numberOfPlayers_Setter2(numberOfPlayers);
-    // std::cout << "Specify number of players: "; std::cin >> numberOfPlayers; std::cout << std::endl;
     std::cout << "Number of Players (Server): " << numberOfPlayers_Getter() << std::endl;
 
     struct World::Player player1;
@@ -676,13 +673,12 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
     struct World::Player player5;
     struct World::Player player6;
 
-    // czy stuktury player1, 2, 3, 4, 5, 6 s� usuwane podczas wrzucenia ich do wektora?
-    World::vectorOfPlayers.push_back(player1);                  // Player ID = 0
-    World::vectorOfPlayers.push_back(player2);                  // Player ID = 1
-    World::vectorOfPlayers.push_back(player3);                  // Player ID = 2
-    World::vectorOfPlayers.push_back(player4);                  // Player ID = 3
-    World::vectorOfPlayers.push_back(player5);                  // Player ID = 4
-    World::vectorOfPlayers.push_back(player6);                  // Player ID = 5
+    World::vectorOfPlayers.emplace_back(player1);                  // Player ID = 0
+    World::vectorOfPlayers.emplace_back(player2);                  // Player ID = 1
+    World::vectorOfPlayers.emplace_back(player3);                  // Player ID = 2
+    World::vectorOfPlayers.emplace_back(player4);                  // Player ID = 3
+    World::vectorOfPlayers.emplace_back(player5);                  // Player ID = 4
+    World::vectorOfPlayers.emplace_back(player6);                  // Player ID = 5
 
     switch (numberOfPlayers)
     {
@@ -690,8 +686,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
     case 2:
         vectorOfPlayers[0].implemented = true;
         vectorOfPlayers[1].implemented = true;
-        //std::cout << "Enter first player nick: "; std::cin >> vectorOfPlayers[0].nick;
-        //std::cout << "Enter second player nick: "; std::cin >> vectorOfPlayers[1].nick;
         playerConv(vectorOfPlayers_Serv[0], &vectorOfPlayers[0]); 
         playerConv(vectorOfPlayers_Serv[1], &vectorOfPlayers[1]); 
         break;
@@ -700,9 +694,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         vectorOfPlayers[0].implemented = true;
         vectorOfPlayers[1].implemented = true;
         vectorOfPlayers[2].implemented = true;
-        //std::cout << "Enter first player nick: "; std::cin >> vectorOfPlayers[0].nick;
-        //std::cout << "Enter second player nick: "; std::cin >> vectorOfPlayers[1].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[2].nick;
         playerConv(vectorOfPlayers_Serv[0], &vectorOfPlayers[0]); 
         playerConv(vectorOfPlayers_Serv[1], &vectorOfPlayers[1]); 
         playerConv(vectorOfPlayers_Serv[2], &vectorOfPlayers[2]); 
@@ -713,10 +704,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         vectorOfPlayers[1].implemented = true;
         vectorOfPlayers[2].implemented = true;
         vectorOfPlayers[3].implemented = true;
-        //std::cout << "Enter first player nick: "; std::cin >> vectorOfPlayers[0].nick;
-        //std::cout << "Enter second player nick: "; std::cin >> vectorOfPlayers[1].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[2].nick;
-        //std::cout << "Enter forth player nick: "; std::cin >> vectorOfPlayers[3].nick;
         playerConv(vectorOfPlayers_Serv[0], &vectorOfPlayers[0]); 
         playerConv(vectorOfPlayers_Serv[1], &vectorOfPlayers[1]); 
         playerConv(vectorOfPlayers_Serv[2], &vectorOfPlayers[2]); 
@@ -729,11 +716,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         vectorOfPlayers[2].implemented = true;
         vectorOfPlayers[3].implemented = true;
         vectorOfPlayers[4].implemented = true;
-        //std::cout << "Enter first player nick: "; std::cin >> vectorOfPlayers[0].nick;
-        //std::cout << "Enter second player nick: "; std::cin >> vectorOfPlayers[1].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[2].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[3].nick;
-        //std::cout << "Enter fifth player nick: "; std::cin >> vectorOfPlayers[4].nick;
         playerConv(vectorOfPlayers_Serv[0], &vectorOfPlayers[0]); 
         playerConv(vectorOfPlayers_Serv[1], &vectorOfPlayers[1]); 
         playerConv(vectorOfPlayers_Serv[2], &vectorOfPlayers[2]); 
@@ -748,12 +730,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         vectorOfPlayers[3].implemented = true;
         vectorOfPlayers[4].implemented = true;
         vectorOfPlayers[5].implemented = true;
-        //std::cout << "Enter first player nick: "; std::cin >> vectorOfPlayers[0].nick;
-        //std::cout << "Enter second player nick: "; std::cin >> vectorOfPlayers[1].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[2].nick;
-        //std::cout << "Enter third player nick: "; std::cin >> vectorOfPlayers[3].nick;
-        //std::cout << "Enter fifth player nick: "; std::cin >> vectorOfPlayers[4].nick;
-        //std::cout << "Enter sixth player nick: "; std::cin >> vectorOfPlayers[5].nick;
         playerConv(vectorOfPlayers_Serv[0], &vectorOfPlayers[0]); 
         playerConv(vectorOfPlayers_Serv[1], &vectorOfPlayers[1]); 
         playerConv(vectorOfPlayers_Serv[2], &vectorOfPlayers[2]); 
@@ -767,8 +743,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         exit(1);
     }
 
-    // Deletion of unnecessary players (first two players are always present, game shouldn't start if they aren't)
-
     if (!vectorOfPlayers[5].implemented)
         vectorOfPlayers.pop_back();
     if (!vectorOfPlayers[4].implemented)
@@ -777,9 +751,6 @@ Sector::Sector(std::vector <PlayerServ> vectorOfPlayers_Serv)
         vectorOfPlayers.pop_back();
     if (!vectorOfPlayers[2].implemented)
         vectorOfPlayers.pop_back();
-
-    // World Initialization (setting all sectors owners from unspecified to NULL        &&      making all sectors empty (numberOfSquadsInSector = 0)
-
 
     // Sector ID = 0
     sectorMap[allSectors[0]].first = "NULL";
@@ -1054,7 +1025,7 @@ Sector::Sector(std::vector <std::string> allSectors)
 
 void Sector::sectorMap_Init(std::string sectorName)
 {
-    std::string playerName_default = "NULL";                                                                // initialization makes empty sectors, that have to be filled yet
+    std::string playerName_default = "NULL";
     int numberOfSquadsInSector_default = 0;
     sectorMap[sectorName].first = playerName_default;
     sectorMap[sectorName].second = numberOfSquadsInSector_default;
@@ -1110,14 +1081,12 @@ bool Sector::allSectorsAcquired_checker()
     {
         if (it->second.first == "NULL")
         {
-            //std::cout << "FALSE" << std::endl;
             return false;
         }
         else
         {
             if (iter == 41)
             {
-                //std::cout << "TRUE" << std::endl;
                 return true;
             }
         }
@@ -1126,7 +1095,6 @@ bool Sector::allSectorsAcquired_checker()
     std::cout << "Exception detected in allSectorsAcquired_checker()!" << std::endl;
     std::cout << "Iter = " << iter << std::endl;
     exit(12);
-    //return false; // linijka dodana na potrzeby wyeliminowania ostrze�enia wygenerowanego przez g�upie IDE
 }
 
 bool Sector::canAttackSector_checker(std::string attackingSector, std::string defendingSector)
@@ -1540,142 +1508,4 @@ int choice()
         std::cin.ignore();
         return -1;
     }
-}
-
-int atoiChecker(char buffer[MAXLINE])
-{
-    std::string stringTemp;
-    int temp = atoi(buffer);
-
-    if (temp == 0)      // If atoi read buffer incorrectly, compensate
-    {
-        stringTemp = buffer;
-        if (stringTemp.find("0") == std::string::npos)
-            temp = -1;
-    }
-    return temp;
-}
-
-void write_Buffer2Pipe_WRITE (int writingPipe, char buffer[MAXLINE], std::string *stringTemp)
-{
-	int stringLength;
-	strcpy(buffer, (*stringTemp).c_str());
-	if (write(writingPipe, &operationWRITE, sizeof(int))        == -1) { printf("Write pipe error"); }
-	stringLength = strlen(buffer);
-	if (write(writingPipe, &stringLength, sizeof(int))          == -1) { printf("Write pipe error"); }
-	if (write(writingPipe, buffer, stringLength * sizeof(char)) == -1) { printf("Write pipe error"); }
-	(*stringTemp).clear(); // juz niepotrzebna
-}
-
-void write_Buffer2Pipe_WRITE_2ALL (int writingPipe, char buffer[MAXLINE], std::string *stringTemp)
-{
-	int stringLength;
-	strcpy(buffer, (*stringTemp).c_str());
-	if (write(writingPipe, &operationWRITE_2ALL, sizeof(int))   == -1) { printf("Write pipe error"); }
-	stringLength = strlen(buffer);
-	if (write(writingPipe, &stringLength, sizeof(int))          == -1) { printf("Write pipe error"); }
-	if (write(writingPipe, buffer, stringLength * sizeof(char)) == -1) { printf("Write pipe error"); }
-	(*stringTemp).clear();  // juz niepotrzebna
-}
-
-void write_Buffer2Pipe_READ (int writingPipe, char buffer[MAXLINE], std::string *stringTemp)
-{
-	int stringLength;
-	strcpy(buffer, (*stringTemp).c_str());
-	if (write(writingPipe, &operationREAD, sizeof(int))         == -1) { printf("Write pipe error"); }
-	stringLength = strlen(buffer);
-	if (write(writingPipe, &stringLength, sizeof(int))          == -1) { printf("Write pipe error"); }
-	if (write(writingPipe, buffer, stringLength * sizeof(char)) == -1) { printf("Write pipe error"); }
-	(*stringTemp).clear(); // juz niepotrzebna
-}
-
-void read_Buffer2Pipe (int readingPipe, char buffer[MAXLINE])
-{
-	int stringLength;
-	if (read(readingPipe, &stringLength, 	sizeof(int)) 	    == -1) printf("Error reading buffer length from pipe\n");
-    if (read(readingPipe, buffer, stringLength * sizeof(char)) == -1) printf("Error reading buffer from pipe\n");
-}
-
-// old, replaced by pipeComParent
-void mutliOperationalPipe (int writingPipe, int readingPipe, int operation, char buffer[MAXLINE], std::string *stringTemp)
-{
-    if (operation == operationWRITE)
-        write_Buffer2Pipe_WRITE (writingPipe, buffer, stringTemp);
-    else if (operation == operationREAD)
-    {
-        write_Buffer2Pipe_READ  (writingPipe, buffer, stringTemp);
-        read_Buffer2Pipe        (readingPipe, buffer);
-    }
-    else   
-        std::cout << "Something went wrong in multiOperationalPipe\nWrong operation: " << operation << std::endl;
-}
-
-void pipeComParent(struct PipeHelper* pipeComStructure, int operation)
-{
-    std::string             *stringTempAddress;
-    std::stringstream       *stringStreamTempAddress;
-    int writingPipe         = pipeComStructure->p2cPipe[1];
-    int readingPipe         = pipeComStructure->c2pPipe[0];
-    stringTempAddress       = pipeComStructure->stringAddress;
-    stringStreamTempAddress = pipeComStructure->stringStreamAddress;
-
-    // zamiana stream na string
-    *stringTempAddress = stringStreamTempAddress->str();
-    // zamiana string na buffer
-
-    if (operation == operationWRITE)
-    {
-        write_Buffer2Pipe_WRITE (writingPipe, pipeComStructure->buffer, stringTempAddress);
-
-        // buffer flush
-        memset(pipeComStructure->buffer, 0, sizeof(pipeComStructure->buffer));
-    }
-
-    else if (operation == operationREAD)
-    {
-        write_Buffer2Pipe_READ  (writingPipe, pipeComStructure->buffer, stringTempAddress);
-
-        // buffer flush
-        memset(pipeComStructure->buffer, 0, sizeof(pipeComStructure->buffer));
-        read_Buffer2Pipe        (readingPipe, pipeComStructure->buffer);
-    }
-
-    else if (operation == operationCliChng)
-    {
-        if (write(writingPipe, &operationCliChng, sizeof(int))                  == -1) { printf ("Write operation to pipe error\n "); }
-        if (write(writingPipe, pipeComStructure->playerID_Address, sizeof(int)) == -1) { printf ("Write client to pipe error\n"); }
-    }
-
-    else if (operation == operationWRITE_2ALL)
-    {
-        write_Buffer2Pipe_WRITE_2ALL (writingPipe, pipeComStructure->buffer, stringTempAddress);
-
-        // buffer flush
-        memset(pipeComStructure->buffer, 0, sizeof(pipeComStructure->buffer));
-    }
-
-    else if (operation == operationEXIT)
-    {
-        // ToDo
-        if (write(writingPipe, &operationEXIT, sizeof(int)) == -1) { printf ("Write operation to pipe error\n"); }
-    }
-
-    else 
-        std::cout << "Something went wrong in pipeComParent\nWrong operation: " << operation << std::endl;
-
-    // clearing
-    string_Flush (pipeComStructure->stringAddress);
-    stringstream_Flush (pipeComStructure->stringStreamAddress);
-
-}
-
-void string_Flush (std::string* stringAddress)
-{
-    stringAddress->clear();
-}
-
-void stringstream_Flush (std::stringstream* stringStreamAddress)
-{
-    stringStreamAddress->str(std::string());
-    stringStreamAddress->clear();
 }
