@@ -1,10 +1,12 @@
-#pragma once
-
 #include "PipeHelper.h"
 #include "common/ConstantValues.h"
+#include "server/SerwerTCP.hpp"
 
+#include <cstring>
+#include <iostream>
 #include <string>
-#include <sstring>
+#include <sstream>
+#include <unistd.h>
 
 
 int atoiChecker(char buffer[MAXLINE])

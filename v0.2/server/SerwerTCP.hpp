@@ -1,7 +1,9 @@
 #pragma once
 
-// Server constants
-#define MAXLINE 1024
+#include "common/ConstantValues.h"
+
+// // Server constants
+// #define MAXLINE 1024
 
 #define SA struct sockaddr
 

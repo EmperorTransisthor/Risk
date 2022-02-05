@@ -1,5 +1,6 @@
 CC=gcc
 
+#TODO improve this makefile
 all: clientMulti clientTCP
 
 clientMulti: clientMulti.c 
