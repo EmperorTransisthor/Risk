@@ -9,6 +9,6 @@ DELIMITER='---------------------------------------------'
 
 cd v0.2
 cd server && make && cd ..
-cd client && make && cd CURRPATH
+cd client && make
 
 echo -e " ${DELIMITER}${GREEN} Build done ${NOCOLOR}${DELIMITER}"

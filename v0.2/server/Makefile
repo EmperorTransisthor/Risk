@@ -3,7 +3,6 @@ OPTMIZATION = -O0
 MAIN_DIRECTORY = ${PWD}/..
 CFLAGS = -I..
 CPP = -std=c++1z
-# CFLAGs = -I/home/emperor/Desktop/Projekciki/Risk/v0.2/
 FUTURE_FLAGS = -Wcast-align -Wcast-align
 
 OPTIONS = ${CFLAGS} ${OPTMIZATION}
@@ -17,5 +16,7 @@ compile:
 	${CC} -c PipeCom/PipeHelper.cpp ${OPTIONS}
 	${CC} -c SerwerMULTICAST.c ${OPTIONS}
 	${CC} main.o class_def.o SerwerTCP.o SerwerMULTICAST.o PipeHelper.o -o RYZYKO
+
+clean:
 	rm *.o
 	
