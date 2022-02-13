@@ -13,6 +13,7 @@
 #include <time.h>
 #include "SerwerTCP.hpp"
 
+struct PipeHelper;
 
 class World {
     /* This class checks if all regions are in ones player possession

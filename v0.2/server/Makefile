@@ -1,12 +1,22 @@
-CC=g++
-CFLAGS=-I.
-	
+CC = g++
+OPTMIZATION = -O0
+MAIN_DIRECTORY = ${PWD}/..
+CFLAGS = -I..
+CPP = -std=c++1z
+FUTURE_FLAGS = -Wcast-align -Wcast-align
+
+OPTIONS = ${CFLAGS} ${OPTMIZATION}
+
+#TODO put files to vector
 	
 compile:
-	${CC} -c class_def.cpp
-	${CC} -c main.cpp
-	${CC} -c SerwerTCP.cpp
-	${CC} -c SerwerMULTICAST.c
-	${CC} main.o class_def.o SerwerTCP.o SerwerMULTICAST.o -o RYZYKO
+	${CC} -c class_def.cpp ${OPTIONS}
+	${CC} -c main.cpp ${OPTIONS}
+	${CC} -c SerwerTCP.cpp ${OPTIONS}
+	${CC} -c PipeCom/PipeHelper.cpp ${OPTIONS}
+	${CC} -c SerwerMULTICAST.c ${OPTIONS}
+	${CC} main.o class_def.o SerwerTCP.o SerwerMULTICAST.o PipeHelper.o -o RYZYKO
+
+clean:
 	rm *.o
 	

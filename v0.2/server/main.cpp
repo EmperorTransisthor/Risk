@@ -11,6 +11,7 @@
 #include "Ryzyko_prototypes.hpp"
 #include "SerwerTCP.hpp"
 #include "SerwerMULTICAST.h"
+#include "PipeCom/PipeHelper.h"
 #include <sys/syslog.h>
 
 
@@ -114,7 +115,6 @@ int main(int argc, char** argv)
         
 
         ////////////////////////////////////////////////// GAME INIT //////////////////////////////////////////////////
-        #ifndef gameInit
 
         bool gameInit_bool = true, wrongNumber_bool = false;
         srand(time(NULL));
@@ -130,8 +130,7 @@ int main(int argc, char** argv)
             playerID %= exemplaryWorld.World::numberOfPlayers_Getter();              // playerID %= numberOfPlayers;
             bool regionSettlement_success = false;
 
-            pipeComParent (&pipeComStructure, operationCliChng);
-
+            pipeComParent(&pipeComStructure, operationCliChng);
 
 
             bool squadPlacementMenu = true;
@@ -246,10 +245,8 @@ int main(int argc, char** argv)
                 
             }
         }
-        #endif// gameInit
 
         /////////////////////////////////////////////////// MAIN LOOP /////////////////////////////////////////////
-        #ifndef mainLoop
 
         stringStreamTemp << "The game has started!" << std::endl;
         pipeComParent(&pipeComStructure, operationWRITE_2ALL);
@@ -664,7 +661,6 @@ int main(int argc, char** argv)
         }
         
 
-        #endif// mainLoop
         /*
         while (gameIsRunning)
         {

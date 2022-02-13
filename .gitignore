@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Compiled files
+clientMulti
+clientTCP
+RYZYKO
+.vscode
