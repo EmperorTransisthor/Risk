@@ -146,4 +146,3 @@ void stringstream_Flush (std::stringstream* stringStreamAddress)
     stringStreamAddress->str(std::string());
     stringStreamAddress->clear();
 }
-
